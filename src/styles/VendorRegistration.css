@@ -1,0 +1,517 @@
+/* ============================================================
+   Gatherly — Vendor Registration Design System
+   Aesthetic: Premium, minimal, professional event marketplace
+   Palette: Warm Ivory, Deep Forest Green & Muted Sage
+   ============================================================ */
+
+:root {
+  /* Canvas & Surfaces */
+  --color-page-bg: #FAF7F2;          /* Warm Ivory */
+  --color-surface: #FFFFFF;          /* Pure White Form Card */
+  --color-surface-subtle: #FAF9F6;   /* Softest Neutral Surface */
+
+  /* Brand Greens */
+  --color-forest: #183B28;           /* Primary: Deep Forest Green */
+  --color-forest-hover: #122E1F;     /* Deep Forest Hover */
+  --color-forest-active: #0D2418;    /* Deep Forest Active */
+  
+  --color-sage: #5E7A65;             /* Secondary: Muted Sage */
+  --color-sage-hover: #4E6754;       /* Darker Sage */
+  --color-sage-light: #F1F5F2;       /* Very Soft Sage Tint */
+  --color-sage-border: #CBD8CE;      /* Soft Sage Border */
+  --color-sage-focus: rgba(94, 122, 101, 0.18); /* Elegant Sage Focus Glow */
+
+  /* Typography Colors */
+  --color-text-main: #1C2720;        /* Deep Charcoal / Forest Tint */
+  --color-text-muted: #566459;       /* Refined Slate-Sage Description */
+  --color-text-caption: #7D8B80;     /* Soft Hint / Metadata */
+  --color-placeholder: #A3AFA5;
+
+  /* Borders & Dividers */
+  --color-border-card: #ECE6DC;      /* Subtle Warm Gray Card Border */
+  --color-border-section: #EFEBE3;   /* Light Section Divider */
+  --color-border-input: #DDD7CD;     /* Subtle Warm Gray Input Border */
+  --color-border-input-hover: #B8B0A2;
+
+  /* Shadows */
+  --shadow-card: 0 4px 20px -2px rgba(24, 59, 40, 0.04), 0 2px 6px -1px rgba(24, 59, 40, 0.02);
+  --shadow-button: 0 2px 6px rgba(24, 59, 40, 0.16);
+  --shadow-button-hover: 0 4px 14px rgba(24, 59, 40, 0.24);
+
+  /* Geometry */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-pill: 9999px;
+
+  /* Fonts */
+  --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   1. PAGE WRAPPER & CONTAINER
+   ───────────────────────────────────────────────────────────── */
+.vendor-reg-page {
+  min-height: 100vh;
+  background-color: var(--color-page-bg);
+  padding: 44px 20px 72px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  color: var(--color-text-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.vendor-reg-container {
+  width: 100%;
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   2. HEADER TYPOGRAPHY
+   ───────────────────────────────────────────────────────────── */
+.vendor-reg-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.vendor-reg-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--color-forest);
+  background-color: var(--color-sage-light);
+  border: 1px solid var(--color-sage-border);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.vendor-reg-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--color-forest);
+  letter-spacing: -0.02em;
+  margin: 0 0 6px 0;
+  line-height: 1.25;
+}
+
+.vendor-reg-subtitle {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin: 0;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   3. FORM CARD CONTAINER
+   ───────────────────────────────────────────────────────────── */
+.vendor-reg-form {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 34px 38px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   4. FORM SECTIONS & LEGENDS
+   ───────────────────────────────────────────────────────────── */
+.vendor-form-section {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border-bottom: 1px solid var(--color-border-section);
+  padding-bottom: 26px;
+}
+
+.vendor-form-section:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.section-legend {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-forest);
+  letter-spacing: -0.01em;
+  margin-bottom: 2px;
+  padding: 0;
+}
+
+.section-subtitle {
+  font-size: 0.84rem;
+  color: var(--color-text-muted);
+  margin: 0 0 4px 0;
+  line-height: 1.45;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   5. TWO-COLUMN GRID LAYOUT
+   ───────────────────────────────────────────────────────────── */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 18px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-field.full-span {
+  grid-column: 1 / -1;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   6. FIELD LABELS & INPUT CONTROLS
+   ───────────────────────────────────────────────────────────── */
+.field-label {
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  letter-spacing: -0.005em;
+  line-height: 1.3;
+}
+
+/* Uniform Inputs, Select, Textarea */
+.field-input,
+.field-select,
+.field-textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--color-text-main);
+  background-color: #FFFFFF;
+  border: 1.5px solid var(--color-border-input);
+  border-radius: var(--radius-md);
+  box-sizing: border-box;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.field-input,
+.field-select {
+  height: 42px;
+  padding: 0 13px;
+  line-height: 42px;
+}
+
+.field-textarea {
+  padding: 11px 13px;
+  min-height: 82px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+/* Input Placeholders */
+.field-input::placeholder,
+.field-textarea::placeholder {
+  color: var(--color-placeholder);
+  font-weight: 400;
+}
+
+/* Hover States */
+.field-input:hover,
+.field-select:hover,
+.field-textarea:hover {
+  border-color: var(--color-border-input-hover);
+}
+
+/* Focus States: Sage Green Glow */
+.field-input:focus,
+.field-select:focus,
+.field-textarea:focus {
+  outline: none;
+  border-color: var(--color-sage);
+  box-shadow: 0 0 0 3px var(--color-sage-focus);
+}
+
+/* Select Dropdown Styling */
+.select-container {
+  position: relative;
+  width: 100%;
+}
+
+.field-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 24 24' fill='none' stroke='%23566459' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 13px center;
+  background-size: 15px;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   7. SERVICE CATEGORIES (COMPACT MULTI-SELECT CHIPS)
+   ───────────────────────────────────────────────────────────── */
+.category-selection-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 12px;
+  margin-top: 2px;
+}
+
+.category-item-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background-color: #FFFFFF;
+  border: 1.5px solid var(--color-border-input);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  user-select: none;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+  min-height: 40px;
+  box-sizing: border-box;
+}
+
+.category-item-card:hover {
+  border-color: var(--color-sage-border);
+  background-color: var(--color-sage-light);
+}
+
+/* Accessible hidden native checkbox */
+.category-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+  pointer-events: none;
+}
+
+/* Compact Checkbox Box */
+.category-custom-box {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid #CFC8BE;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.category-check-icon {
+  font-size: 11px;
+  font-weight: 700;
+  color: #FFFFFF;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: all 0.15s ease;
+  line-height: 1;
+}
+
+.category-label-text {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text-main);
+  transition: color 0.15s ease;
+  letter-spacing: -0.005em;
+}
+
+/* Checked State */
+.category-checkbox:checked + .category-custom-box {
+  background-color: var(--color-forest);
+  border-color: var(--color-forest);
+}
+
+.category-checkbox:checked + .category-custom-box .category-check-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.category-item-card:has(.category-checkbox:checked) {
+  border-color: var(--color-forest);
+  background-color: var(--color-sage-light);
+}
+
+.category-item-card:has(.category-checkbox:checked) .category-label-text {
+  color: var(--color-forest);
+  font-weight: 600;
+}
+
+/* Focus Visible Accessibility */
+.category-checkbox:focus-visible + .category-custom-box {
+  box-shadow: 0 0 0 3px var(--color-sage-focus);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   8. COMPACT & MATCHING FILE UPLOAD AREAS
+   ───────────────────────────────────────────────────────────── */
+.upload-grid {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 18px;
+}
+
+.file-upload-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px dashed var(--color-border-input);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface-subtle);
+  padding: 16px 14px;
+  text-align: center;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+  cursor: pointer;
+  min-height: 104px;
+  box-sizing: border-box;
+}
+
+.file-upload-card:hover {
+  border-color: var(--color-sage);
+  background-color: var(--color-sage-light);
+}
+
+.file-input-native {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.file-upload-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  pointer-events: none;
+}
+
+.upload-icon {
+  color: var(--color-sage);
+  transition: color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.file-upload-card:hover .upload-icon {
+  color: var(--color-forest);
+}
+
+.upload-title {
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--color-forest);
+  letter-spacing: -0.005em;
+}
+
+.upload-meta {
+  font-size: 0.73rem;
+  color: var(--color-text-caption);
+  line-height: 1.3;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   9. REFINED PRIMARY SUBMIT BUTTON
+   ───────────────────────────────────────────────────────────── */
+.form-actions-wrapper {
+  margin-top: 4px;
+  display: flex;
+}
+
+.primary-submit-button {
+  width: 100%;
+  height: 48px;
+  background-color: var(--color-forest);
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 0.96rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  box-shadow: var(--shadow-button);
+  transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: -0.01em;
+}
+
+.primary-submit-button:hover {
+  background-color: var(--color-forest-hover);
+  box-shadow: var(--shadow-button-hover);
+  transform: translateY(-1px);
+}
+
+.primary-submit-button:active {
+  background-color: var(--color-forest-active);
+  transform: translateY(0);
+  box-shadow: var(--shadow-button);
+}
+
+.primary-submit-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-sage-focus), var(--shadow-button-hover);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   10. RESPONSIVE BREAKPOINT (MOBILE VIEW)
+   ───────────────────────────────────────────────────────────── */
+@media (max-width: 680px) {
+  .vendor-reg-page {
+    padding: 24px 14px 54px 14px;
+  }
+
+  .vendor-reg-form {
+    padding: 24px 18px;
+    gap: 22px;
+  }
+
+  .vendor-reg-title {
+    font-size: 1.55rem;
+  }
+
+  .vendor-reg-subtitle {
+    font-size: 0.88rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .category-selection-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .upload-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .file-upload-card {
+    min-height: 96px;
+    padding: 14px 12px;
+  }
+}

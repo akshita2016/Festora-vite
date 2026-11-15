@@ -1,0 +1,588 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap");
+
+.fsu-page {
+  --fsu-rose: #e8526e;
+  --fsu-rose-dark: #c13058;
+  --fsu-rose-light: #fdf0f3;
+  --fsu-rose-mid: #f9d0d8;
+  --fsu-ink: #1c1c2e;
+  --fsu-ink-muted: #5a5a75;
+  --fsu-muted: #7b7b9a;
+  --fsu-border: #e6e6f0;
+  --fsu-bg: #faf9fb;
+  --fsu-surface: #ffffff;
+  --fsu-error: #d92d5a;
+  --fsu-ok: #1c8a5a;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.15fr);
+  min-height: 100vh;
+  background: var(--fsu-bg);
+  color: var(--fsu-ink);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.fsu-page *, .fsu-page *::before, .fsu-page *::after {
+  box-sizing: border-box;
+}
+
+/* ═══════════════ LEFT HERO ═══════════════ */
+.fsu-hero {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  background: #1c1c2e;
+}
+
+.fsu-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1400&q=80") center / cover no-repeat;
+  transform: scale(1.02);
+}
+
+.fsu-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(28, 28, 46, 0.82) 0%,
+    rgba(45, 22, 34, 0.78) 50%,
+    rgba(28, 28, 46, 0.92) 100%
+  );
+  backdrop-filter: blur(1px);
+}
+
+.fsu-hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  min-height: 100vh;
+  padding: 56px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fsu-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.fsu-logo-mark {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #e8526e, #c13058);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  box-shadow: 0 6px 18px rgba(232, 82, 110, 0.4);
+  flex-shrink: 0;
+}
+
+.fsu-logo-text {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.fsu-logo-text span {
+  color: #ff9fb2;
+}
+
+.fsu-hero-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2.3rem, 4.2vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.12;
+  margin: 0 0 18px;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.fsu-hero-title em {
+  font-style: italic;
+  font-weight: 600;
+  color: #ff9fb2;
+}
+
+.fsu-hero-text {
+  margin: 0 0 28px;
+  max-width: 42ch;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1rem;
+}
+
+.fsu-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.fsu-chips span {
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  backdrop-filter: blur(8px);
+}
+
+/* Floating decorative rings */
+.fsu-deco {
+  position: absolute;
+  z-index: 1;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.fsu-deco-ring {
+  width: 320px;
+  height: 320px;
+  top: -90px;
+  right: -90px;
+  border: 1.5px solid rgba(232, 82, 110, 0.22);
+}
+
+.fsu-deco-dot {
+  background: var(--fsu-rose);
+  animation: fsu-float 6s ease-in-out infinite;
+}
+
+.fsu-deco-dot-a {
+  width: 14px;
+  height: 14px;
+  top: 25%;
+  right: 18%;
+  opacity: 0.6;
+}
+
+.fsu-deco-dot-b {
+  width: 20px;
+  height: 20px;
+  top: 55%;
+  right: 10%;
+  background: #ffb4c3;
+  opacity: 0.5;
+  animation-delay: -2s;
+}
+
+.fsu-deco-dot-c {
+  width: 10px;
+  height: 10px;
+  top: 42%;
+  left: 8%;
+  opacity: 0.4;
+  animation-delay: -4s;
+}
+
+@keyframes fsu-float {
+  50% { transform: translateY(-12px); }
+}
+
+/* ═══════════════ RIGHT FORM PANEL ═══════════════ */
+.fsu-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 44px 32px;
+  background: var(--fsu-surface);
+}
+
+.fsu-card {
+  width: 100%;
+  max-width: 480px;
+}
+
+.fsu-mobile-logo {
+  display: none;
+  margin-bottom: 24px;
+}
+
+.fsu-mobile-logo .fsu-logo-text {
+  color: var(--fsu-ink);
+}
+
+.fsu-mobile-logo .fsu-logo-text span {
+  color: var(--fsu-rose);
+}
+
+.fsu-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2.15rem;
+  font-weight: 700;
+  color: var(--fsu-ink);
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+}
+
+.fsu-title em {
+  font-style: italic;
+  color: var(--fsu-rose);
+}
+
+.fsu-subtitle {
+  margin: 0 0 28px;
+  color: var(--fsu-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.fsu-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Account type selection cards */
+.fsu-types {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.fsu-types legend {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--fsu-ink);
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.fsu-type-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.fsu-type {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 14px;
+  background: #ffffff;
+  border: 1.5px solid var(--fsu-border);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.18s, border-color 0.18s, background 0.18s, box-shadow 0.18s;
+}
+
+.fsu-type input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+}
+
+.fsu-type:hover {
+  transform: translateY(-2px);
+  border-color: var(--fsu-rose-mid);
+  box-shadow: 0 6px 16px rgba(28, 28, 46, 0.05);
+}
+
+.fsu-type-selected {
+  border-color: var(--fsu-rose);
+  background: var(--fsu-rose-light);
+  box-shadow: 0 8px 20px rgba(232, 82, 110, 0.12);
+}
+
+.fsu-type-icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  color: var(--fsu-rose);
+  background: #ffffff;
+  border: 1px solid var(--fsu-border);
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
+}
+
+.fsu-type-selected .fsu-type-icon {
+  background: linear-gradient(135deg, #e8526e, #c13058);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(232, 82, 110, 0.3);
+}
+
+.fsu-type-title {
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--fsu-ink);
+}
+
+.fsu-type-text {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--fsu-muted);
+}
+
+.fsu-type-check {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: #ffffff;
+  background: var(--fsu-rose);
+  transform: scale(0);
+  transition: transform 0.2s cubic-bezier(0.3, 1.6, 0.6, 1);
+}
+
+.fsu-type-selected .fsu-type-check {
+  transform: scale(1);
+}
+
+/* Fields & inputs */
+.fsu-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.fsu-field label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--fsu-ink);
+}
+
+.fsu-input {
+  width: 100%;
+  padding: 13px 16px;
+  font: inherit;
+  font-size: 0.93rem;
+  color: var(--fsu-ink);
+  background: #ffffff;
+  border: 1.5px solid var(--fsu-border);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(28, 28, 46, 0.04);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.fsu-input::placeholder {
+  color: #a4a4b8;
+}
+
+.fsu-input:hover {
+  border-color: #d2d2e2;
+}
+
+.fsu-input:focus {
+  outline: none;
+  border-color: var(--fsu-rose);
+  box-shadow: 0 0 0 4px rgba(232, 82, 110, 0.14);
+}
+
+/* Checkbox */
+.fsu-check {
+  display: flex !important;
+  align-items: center;
+  gap: 9px;
+  margin: 0 !important;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--fsu-ink-muted);
+  cursor: pointer;
+}
+
+.fsu-check input {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--fsu-rose);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.fsu-check a {
+  color: var(--fsu-rose);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.fsu-check a:hover {
+  color: var(--fsu-rose-dark);
+  text-decoration: underline;
+}
+
+/* Buttons */
+.fsu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 13.5px 20px;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s, background 0.2s;
+}
+
+.fsu-btn:focus-visible {
+  outline: 3px solid var(--fsu-rose);
+  outline-offset: 2px;
+}
+
+.fsu-btn-primary {
+  color: #ffffff;
+  border: 0;
+  background: linear-gradient(135deg, #e8526e 0%, #c13058 100%);
+  box-shadow: 0 6px 18px rgba(232, 82, 110, 0.35);
+}
+
+.fsu-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(232, 82, 110, 0.42);
+}
+
+.fsu-btn-primary:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.fsu-btn-google {
+  color: var(--fsu-ink);
+  background: #ffffff;
+  border: 1.5px solid var(--fsu-border);
+  box-shadow: 0 1px 3px rgba(28, 28, 46, 0.04);
+}
+
+.fsu-btn-google:hover {
+  background: var(--fsu-rose-light);
+  border-color: var(--fsu-rose-mid);
+  transform: translateY(-1px);
+}
+
+.fsu-btn-google:active {
+  transform: scale(0.99);
+}
+
+.fsu-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--fsu-muted);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 4px 0;
+}
+
+.fsu-divider::before, .fsu-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--fsu-border);
+}
+
+.fsu-switch {
+  text-align: center;
+  margin: 16px 0 0;
+  color: var(--fsu-muted);
+  font-size: 0.9rem;
+}
+
+.fsu-switch a {
+  color: var(--fsu-rose);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.fsu-switch a:hover {
+  color: var(--fsu-rose-dark);
+  text-decoration: underline;
+}
+
+/* ═══════════════ RESPONSIVE ═══════════════ */
+@media (max-width: 960px) {
+  .fsu-page {
+    grid-template-columns: 1fr;
+  }
+  .fsu-hero {
+    display: none;
+  }
+  .fsu-mobile-logo {
+    display: inline-flex;
+  }
+  .fsu-panel {
+    padding: 40px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fsu-type-grid {
+    grid-template-columns: 1fr;
+  }
+  .fsu-title {
+    font-size: 1.8rem;
+  }
+}
+
+
+.festora-toast {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    background: #fff0f5;
+    border: 1px solid #ffd6e2;
+    border-radius: 12px;
+
+    padding: 13px 20px;
+    min-width: 270px;
+
+    box-shadow: 0 4px 18px rgba(220, 80, 120, 0.12);
+
+    animation: toastSlide 0.4s ease;
+}
+
+.toast-icon {
+    font-size: 25px;
+}
+
+.festora-toast strong {
+    color: #d94370;
+    font-size: 14px;
+}
+
+.festora-toast p {
+    color: #a47789;
+    font-size: 12px;
+    margin: 4px 0 0;
+}
+
+@keyframes toastSlide {
+    from {
+        opacity: 0;
+        transform: translateX(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

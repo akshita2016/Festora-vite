@@ -1,0 +1,471 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap");
+
+.fli-page {
+  --fli-rose: #e8526e;
+  --fli-rose-dark: #c13058;
+  --fli-rose-light: #fdf0f3;
+  --fli-rose-mid: #f9d0d8;
+  --fli-ink: #1c1c2e;
+  --fli-ink-muted: #5a5a75;
+  --fli-muted: #7b7b9a;
+  --fli-border: #e6e6f0;
+  --fli-bg: #faf9fb;
+  --fli-surface: #ffffff;
+  --fli-error: #d92d5a;
+  --fli-ok: #1c8a5a;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.15fr);
+  min-height: 100vh;
+  background: var(--fli-bg);
+  color: var(--fli-ink);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.fli-page *, .fli-page *::before, .fli-page *::after {
+  box-sizing: border-box;
+}
+
+/* ═══════════════ LEFT HERO ═══════════════ */
+.fli-hero {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  background: #1c1c2e;
+}
+
+.fli-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=80") center / cover no-repeat;
+  transform: scale(1.02);
+  transition: transform 10s ease;
+}
+
+.fli-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(28, 28, 46, 0.82) 0%,
+    rgba(45, 22, 34, 0.78) 50%,
+    rgba(28, 28, 46, 0.92) 100%
+  );
+  backdrop-filter: blur(1px);
+}
+
+.fli-hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  min-height: 100vh;
+  padding: 56px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fli-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.fli-logo-mark {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #e8526e, #c13058);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  box-shadow: 0 6px 18px rgba(232, 82, 110, 0.4);
+  flex-shrink: 0;
+}
+
+.fli-logo-text {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.fli-logo-text span {
+  color: #ff9fb2;
+}
+
+.fli-hero-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2.3rem, 4.2vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.12;
+  margin: 0 0 18px;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.fli-hero-title em {
+  font-style: italic;
+  font-weight: 600;
+  color: #ff9fb2;
+}
+
+.fli-hero-text {
+  margin: 0 0 28px;
+  max-width: 42ch;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1rem;
+}
+
+.fli-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.fli-chips span {
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  backdrop-filter: blur(8px);
+}
+
+/* Floating decorative rings */
+.fli-deco {
+  position: absolute;
+  z-index: 1;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.fli-deco-ring {
+  width: 320px;
+  height: 320px;
+  top: -90px;
+  right: -90px;
+  border: 1.5px solid rgba(232, 82, 110, 0.22);
+}
+
+.fli-deco-dot {
+  background: var(--fli-rose);
+  animation: fli-float 6s ease-in-out infinite;
+}
+
+.fli-deco-dot-a {
+  width: 14px;
+  height: 14px;
+  top: 25%;
+  right: 18%;
+  opacity: 0.6;
+}
+
+.fli-deco-dot-b {
+  width: 20px;
+  height: 20px;
+  top: 55%;
+  right: 10%;
+  background: #ffb4c3;
+  opacity: 0.5;
+  animation-delay: -2s;
+}
+
+.fli-deco-dot-c {
+  width: 10px;
+  height: 10px;
+  top: 42%;
+  left: 8%;
+  opacity: 0.4;
+  animation-delay: -4s;
+}
+
+@keyframes fli-float {
+  50% { transform: translateY(-12px); }
+}
+
+/* ═══════════════ RIGHT FORM PANEL ═══════════════ */
+.fli-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 32px;
+  background: var(--fli-surface);
+}
+
+.fli-card {
+  width: 100%;
+  max-width: 440px;
+}
+
+.fli-mobile-logo {
+  display: none;
+  margin-bottom: 24px;
+}
+
+.fli-mobile-logo .fli-logo-text {
+  color: var(--fli-ink);
+}
+
+.fli-mobile-logo .fli-logo-text span {
+  color: var(--fli-rose);
+}
+
+.fli-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2.15rem;
+  font-weight: 700;
+  color: var(--fli-ink);
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+}
+
+.fli-title em {
+  font-style: italic;
+  color: var(--fli-rose);
+}
+
+.fli-subtitle {
+  margin: 0 0 32px;
+  color: var(--fli-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.fli-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fli-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.fli-field label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--fli-ink);
+}
+
+.fli-input {
+  width: 100%;
+  padding: 13px 16px;
+  font: inherit;
+  font-size: 0.93rem;
+  color: var(--fli-ink);
+  background: #ffffff;
+  border: 1.5px solid var(--fli-border);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(28, 28, 46, 0.04);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.fli-input::placeholder {
+  color: #a4a4b8;
+}
+
+.fli-input:hover {
+  border-color: #d2d2e2;
+}
+
+.fli-input:focus {
+  outline: none;
+  border-color: var(--fli-rose);
+  box-shadow: 0 0 0 4px rgba(232, 82, 110, 0.14);
+}
+
+/* Password wrap */
+.fli-password-wrap {
+  position: relative;
+}
+
+.fli-password-wrap .fli-input {
+  padding-right: 48px;
+}
+
+.fli-toggle {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  color: var(--fli-muted);
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: color 0.18s, background 0.18s;
+}
+
+.fli-toggle:hover {
+  color: var(--fli-rose);
+  background: var(--fli-rose-light);
+}
+
+/* Remember / forgot row */
+.fli-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.fli-check {
+  display: flex !important;
+  align-items: center;
+  gap: 9px;
+  margin: 0 !important;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--fli-ink-muted);
+  cursor: pointer;
+}
+
+.fli-check input {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--fli-rose);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.fli-link {
+  color: var(--fli-rose);
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: color 0.18s;
+}
+
+.fli-link:hover {
+  color: var(--fli-rose-dark);
+  text-decoration: underline;
+}
+
+/* Buttons */
+.fli-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 13.5px 20px;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s, background 0.2s;
+}
+
+.fli-btn:focus-visible {
+  outline: 3px solid var(--fli-rose);
+  outline-offset: 2px;
+}
+
+.fli-btn-primary {
+  color: #ffffff;
+  border: 0;
+  background: linear-gradient(135deg, #e8526e 0%, #c13058 100%);
+  box-shadow: 0 6px 18px rgba(232, 82, 110, 0.35);
+}
+
+.fli-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(232, 82, 110, 0.42);
+}
+
+.fli-btn-primary:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.fli-btn-google {
+  color: var(--fli-ink);
+  background: #ffffff;
+  border: 1.5px solid var(--fli-border);
+  box-shadow: 0 1px 3px rgba(28, 28, 46, 0.04);
+}
+
+.fli-btn-google:hover {
+  background: var(--fli-rose-light);
+  border-color: var(--fli-rose-mid);
+  transform: translateY(-1px);
+}
+
+.fli-btn-google:active {
+  transform: scale(0.99);
+}
+
+.fli-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--fli-muted);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 4px 0;
+}
+
+.fli-divider::before, .fli-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--fli-border);
+}
+
+.fli-switch {
+  text-align: center;
+  margin: 16px 0 0;
+  color: var(--fli-muted);
+  font-size: 0.9rem;
+}
+
+.fli-switch a {
+  color: var(--fli-rose);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.fli-switch a:hover {
+  color: var(--fli-rose-dark);
+  text-decoration: underline;
+}
+
+/* ═══════════════ RESPONSIVE ═══════════════ */
+@media (max-width: 960px) {
+  .fli-page {
+    grid-template-columns: 1fr;
+  }
+  .fli-hero {
+    display: none;
+  }
+  .fli-mobile-logo {
+    display: inline-flex;
+  }
+  .fli-panel {
+    padding: 40px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fli-title {
+    font-size: 1.8rem;
+  }
+}
