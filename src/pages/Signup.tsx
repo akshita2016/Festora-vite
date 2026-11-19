@@ -23,7 +23,7 @@ const addUser = async (e: React.FormEvent<HTMLFormElement>) => {
 
     try {
         const response = await axios.post(
-            `{API_URL}/signupApi/signup`,
+            `${API_URL}/signupApi/signup`,
             {
                 name: formData.name,
                 email: formData.email,
