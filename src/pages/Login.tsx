@@ -16,7 +16,7 @@ const navigate = useNavigate();
     e.preventDefault();
 
     try {
-        const res = await axios.post("http://localhost:2026/loginApi/login", {
+        const res = await axios.post(`${import.meta.env.VITE_API_URL}/loginApi/login`, {
             email,
             password
         });

@@ -121,7 +121,7 @@ if (certificate) {
 
 // console.log("Shop file type:", shopPhoto?.type);
 // console.log("Certificate file type:", certificate?.type);
-      const response = await axios.post("http://localhost:2026/vendor/register", data);
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/vendor/register`, data);
       console.log(response.data);
 
       alert("Business Registered successfully");
@@ -140,7 +140,7 @@ if (certificate) {
 
     try {
       const result = await axios.get(
-        "http://localhost:2026/vendor/fetch",
+        `${import.meta.env.VITE_API_URL}/vendor/fetch`,
         {
           params: {
              emailid: email.toLowerCase()
@@ -186,7 +186,7 @@ if (certificate) {
     }
 
     const result = await axios.put(
-      "http://localhost:2026/vendor/update",
+      `${import.meta.env.VITE_API_URL}/vendor/update`,
       data
     );
 

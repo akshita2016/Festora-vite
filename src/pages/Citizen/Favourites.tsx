@@ -92,7 +92,7 @@ useEffect(() => {
       const token = localStorage.getItem("token");
 
       const res = await axios.post(
-        "http://localhost:2026/favorites/fetch",
+    `${import.meta.env.VITE_API_URL}206/favorites/fetch`,
         {},
         {
           headers: {
@@ -125,7 +125,7 @@ const onRemove = async (vendor: Vendor) => {
     const token = localStorage.getItem("token");
 
     const res = await axios.post(
-      "http://localhost:2026/favorites/remove",
+      `${import.meta.env.VITE_API_URL}/favorites/remove`,
       {
         vendorEmail: vendor.emailid,
       },
@@ -153,7 +153,7 @@ const onClearAll = async () => {
 
     for (const vendor of favourites) {
       await axios.post(
-        "http://localhost:2026/favorites/remove",
+   `${import.meta.env.VITE_API_URL}/favorites/remove`,
         {
           vendorEmail: vendor.emailid,
         },

@@ -259,7 +259,7 @@ const citizenemail = localStorage.getItem("citizenemail") || "";
 const handleFetch = async (eventName: string) =>{
   try{
     const res = await axios.post(
-  "http://localhost:2026/service/fetch",
+ `${import.meta.env.VITE_API_URL}/service/fetch`,
   { event: eventName }
 );
 
@@ -278,7 +278,7 @@ setFilters((prev) => ({
 const fetchCities = async () => {
   try {
     const res = await axios.post(
-      "http://localhost:2026/service/CityFetch"
+      `${import.meta.env.VITE_API_URL}/service/CityFetch`
     );
 
     if (res.data.status) {
@@ -313,7 +313,7 @@ const handleFindVendors = async () => {
     console.log("Selected city:", filters.city);
 console.log("Selected services:", filters.selectedServices);
     const res = await axios.post(
-      "http://localhost:2026/service/VendorDetails",
+      `${import.meta.env.VITE_API_URL}/service/VendorDetails`,
       {
         city: filters.city,
         services: filters.selectedServices,
@@ -352,8 +352,8 @@ console.log("Selected vendor:", vendor.emailid);
     );
 
     const url = saved
-      ? "http://localhost:2026/favorites/remove"
-      : "http://localhost:2026/favorites/add";
+      ? `${import.meta.env.VITE_API_URL}/favorites/remove`
+      : `${import.meta.env.VITE_API_URL}/favorites/add`;
 
     const res = await axios.post(
       url,

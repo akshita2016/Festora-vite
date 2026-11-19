@@ -218,7 +218,7 @@ const extractAadhaarDetails = async (file: File) => {
   formData.append("aadhaarImage", file);
 
   const response = await axios.post(
-    "http://localhost:2026/citizen/extract-aadhaar",
+    `${import.meta.env.VITE_API_URL}/citizen/extract-aadhaar`,
     formData
   );
 
@@ -371,7 +371,7 @@ const handleFetch = async (emailToFetch: string = fetchEmail) => {
 
   try {
     const res = await axios.get(
-      "http://localhost:2026/citizen/fetch",
+      `${import.meta.env.VITE_API_URL}/citizen/fetch`,
       {
         params: {
           emailid: emailToFetch.trim()
@@ -558,7 +558,7 @@ useEffect(() => {
       };
 
       const response = await axios.post(
-        "http://localhost:2026/citizen/register",
+        `${import.meta.env.VITE_API_URL}/citizen/register`,
         payload
       );
 
